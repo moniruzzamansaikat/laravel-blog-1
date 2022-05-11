@@ -1,0 +1,70 @@
+body {
+    background-color: #f0f0f0;
+}
+
+.card {
+    border-radius: 0;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+
+.alert {
+    border-radius: 0;
+}
+
+.form-control {
+    border-radius: 0;
+    border-color: #010101;
+    box-shadow: 0 0 0;
+}
+
+.form-control:hover,
+.form-control:focus {
+    border-color: #010101;
+    box-shadow: 0 0 0 !important;
+}
+
+.btn {
+    box-shadow: 0 0 0 !important;
+    border-radius: 0;
+}
+
+.btn-primary {
+    background-color: #010101;
+    border-color: #010101;
+}
+
+.btn-primary:hover,
+.btn-primary:focus {
+    background-color: #010101;
+    border-color: #010101;
+    box-shadow: 0 0 0 !important;
+}
+
+.post_show_drawer {
+    position: fixed;
+    width: 400px;
+    min-height: 100vh;
+    right: -100%;
+    top: 0;
+    bottom: 0;
+    z-index: 9999;
+    background-color: #fff;
+    overflow-y: auto;
+    padding: 1rem;
+    border-radius: 0;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+.post_show_drawer.show {
+    right: 0;
+}
+
+.post_show_drawer button {
+    border-radius: 0;
+    background: transparent;
+    font-size: 1.5rem;
+    border: 0;
+    outline: 0;
+    cursor: pointer;
+    font-weight: 700;
+}
