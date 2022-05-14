@@ -52,7 +52,7 @@ class AuthController extends Controller
             return back()->withErrors(['message' => 'Something went wrong']);
         }
 
-        return redirect()->route('dashboard');
+        return redirect()->route('dashboard.index');
     }
 
     public function logout()

@@ -8,7 +8,7 @@ class PostController extends Controller
 {
     public function index()
     {
-        $posts = Post::all();
+        $posts = Post::simplePaginate(5);
         $recentPosts = Post::orderBy('created_at', 'desc')->limit(3)->get();
         $popularPosts = Post::orderBy('views', 'desc')->limit(3)->get();
 

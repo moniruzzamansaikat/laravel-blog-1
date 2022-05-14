@@ -1,26 +1,31 @@
 @extends('layouts.admin') @section('title', 'Profile') @section('content')
 
 <div class="card card-body mb-4">
-    <div class="d-flex align-items-center">
+    <div class="d-flex ">
         <img
-            src="https://cdn.icon-icons.com/icons2/1378/PNG/512/avatardefault_92824.png"
-            style="width: 100px"
+            width="150"
+            height="150"
+            src="{{auth()->user()->thumbnail ? asset('images/thumbnails/' .  auth()->user()->thumbnail ) : asset('images/default_image.png')}}"
             class="img-fluid me-3"
             alt=""
         />
         <div>
-            <h4 class="alert-heading">Hey, {{auth()->user()->name}}!</h4>
+            <h4 class="alert-heading">{{auth()->user()->name}}!</h4>
             <hr />
-            <p class="mb-0">
-                You can change your profile information here if needed.
-            </p>
+            <a href="{{route('dashboard.profile.delete')}}" class="btn btn-danger confirm_link" data-message="Are you sure to delete account?">Delete Account</a>
         </div>
     </div>
 </div>
 
 <!-- update name, email and thumbnail -->
 <div class="card p-4">
-    <form action="">
+    <form
+        action="{{ route('dashboard.profile.info') }}"
+        method="post"
+        enctype="multipart/form-data"
+    >
+        @csrf @method('PUT')
+
         <h3>Basic Information</h3>
 
         <div class="row">

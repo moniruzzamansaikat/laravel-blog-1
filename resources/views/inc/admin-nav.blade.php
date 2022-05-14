@@ -32,13 +32,6 @@
                 <li class="nav-item">
                     <a
                         class="nav-link"
-                        href="{{ route('dashboard.posts.create') }}"
-                        >Add Post</a
-                    >
-                </li>
-                <li class="nav-item">
-                    <a
-                        class="nav-link"
                         href="{{ route('dashboard.categories.index') }}"
                         >Categories</a
                     >

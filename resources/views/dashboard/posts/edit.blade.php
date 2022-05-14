@@ -5,11 +5,12 @@
 <div class="card mb-4">
     <div class="card-body">
         <form
-            action="{{ route('dashboard.posts.update') }}"
+            action="{{ route('dashboard.posts.update', $post) }}"
             method="post"
             enctype="multipart/form-data"
         >
             @csrf
+            @method('PUT')
             <div class="form-group mb-3">
                 <label for="title">Title</label>
                 <input

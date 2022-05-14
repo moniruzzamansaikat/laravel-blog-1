@@ -12,7 +12,7 @@
             <table class="table">
                 <thead>
                     <tr>
-                        <th>#Id</th>
+                        <th>#</th>
                         <th>Category Name</th>
                         <th>Created By</th>
                         <th>Action</th>
@@ -21,17 +21,17 @@
                 <tbody>
                     @foreach ($categories as $category)
                     <tr>
-                        <td>{{ $category->id }}</td>
+                        <td>{{ $loop->index + 1 }}</td>
                         <td>{{ $category->name }}</td>
                         <td>{{ $category -> user -> name }}</td>
                         <td>
                             <a
-                                href="{{ route('dashboard.categories.edit', $category->id) }}"
+                                href="{{ route('dashboard.categories.edit', $category) }}"
                                 class="btn btn-primary"
                                 >Edit</a
                             >
                             <form
-                                action="{{ route('dashboard.categories.destroy', $category->id) }}"
+                                action="{{ route('dashboard.categories.destroy', $category) }}"
                                 method="POST"
                                 class="d-inline"
                             >

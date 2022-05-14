@@ -46,7 +46,7 @@
             <!-- end of all post -->
 
             <!-- pagination -->
-            <!-- TODO: navigation -->
+            {{$posts -> links()}}
             <!-- end of pagination -->
         </div>
 

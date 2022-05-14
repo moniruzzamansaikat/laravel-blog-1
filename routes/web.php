@@ -38,7 +38,7 @@ Route::prefix('dashboard')->middleware('auth')->name('dashboard.')->group(functi
     Route::get('/', [DashboardController::class, 'index'])->name('index');
 
     Route::get('/posts', [DPostController::class, 'index'])->name('posts');
-    Route::put('/posts', [DPostController::class, 'update'])->name('posts.update');
+    Route::put('/posts/{post}', [DPostController::class, 'update'])->name('posts.update');
     Route::get('/posts/create', [DPostController::class, 'create'])->name('posts.create');
     Route::get('/posts/edit/{post:slug}', [DPostController::class, 'edit'])->name('posts.edit');
     Route::post('/posts/store', [DPostController::class, 'store'])->name('posts.store');
@@ -49,11 +49,13 @@ Route::prefix('dashboard')->middleware('auth')->name('dashboard.')->group(functi
     Route::delete('/comments/{comment}', [DCommentsController::class, 'destroy'])->name('comments.destory');
 
     Route::get('/profile', [DashboardController::class, 'profile'])->name('profile');
+    Route::put('/profile/info', [ProfileController::class, 'update_info'])->name('profile.info');
+    Route::get('/profile/delete', [ProfileController::class, 'delete_account'])->name('profile.delete');
     Route::post('/profile/udpate/security', [ProfileController::class, 'update_password'])->name('profile.security');
 
     Route::get('/categories', [CategoryController::class, 'index'])->name('categories.index');
     Route::get('/categories/create', [CategoryController::class, 'create'])->name('categories.create');
-    Route::get('/categories/edit/{category}', [CategoryController::class, 'edit'])->name('categories.edit');
+    Route::get('/categories/edit/{category:name}', [CategoryController::class, 'edit'])->name('categories.edit');
     Route::put('/categories/{category}', [CategoryController::class, 'update'])->name('categories.update');
     Route::delete('/categories/{category}', [CategoryController::class, 'destroy'])->name('categories.destroy');
     Route::post('/categories', [CategoryController::class, 'store'])->name('categories.store');

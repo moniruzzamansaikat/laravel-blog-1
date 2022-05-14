@@ -1,5 +1,7 @@
 @extends('layouts.admin') @section('title', 'Posts') @section('content')
-<h1>Posts</h1>
+<h1>Posts</h1> 
+
+<a href="{{ route('dashboard.posts.create') }}" class="btn btn-primary mb-3">Add Post</a>
 
 <div class="card mb-3">
     <div class="card-body">
@@ -7,7 +9,7 @@
             <table class="table table-striped">
                 <thead>
                     <tr>
-                        <th>ID</th>
+                        <th>#</th>
                         <th>User</th>
                         <th>Category</th>
                         <th>Title</th>
@@ -17,7 +19,7 @@
                 <tbody>
                     @foreach ($posts as $post)
                     <tr>
-                        <td>{{$post->id}}</td>
+                        <td>{{$loop->index + 1}}</td>
                         <td>{{$post->author->name}}</td>
                         <td>
                             {{$post->category ? $post->category->name : 'Uncategorized'}}
@@ -57,6 +59,9 @@
                     @endforeach
                 </tbody>
             </table>
+            <div>
+                {{$posts -> links()}}
+            </div>
         </div>
     </div>
 </div>
@@ -66,7 +71,11 @@
     <button>&times;</button>
 
     <h2></h2>
-    <div></div>
+
+    <!-- show post author and category -->
+    <div class="info"></div>
+
+    <div class="content"></div>
 </div>
 
 @endsection

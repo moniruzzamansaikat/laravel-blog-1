@@ -20,5 +20,6 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::get('posts/{post}', function (Post $post) {
-    return $post;
+    return Post::with('author')->with('category')->find($post->id);
+
 });

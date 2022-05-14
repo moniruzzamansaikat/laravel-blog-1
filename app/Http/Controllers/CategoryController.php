@@ -9,7 +9,7 @@ class CategoryController extends Controller
 {
     public function index()
     {
-        $categories = Category::all();
+        $categories = Category::paginate(10);
         return view('dashboard.categories.index', compact('categories'));
     }
 
@@ -47,7 +47,7 @@ class CategoryController extends Controller
             'name' => $request->name,
         ]);
 
-        return back()->with('success', 'Category updated successfully');
+        return redirect()->route('dashboard.categories.index')->with('success', 'Category updated successfully');
     }
 
     public function destroy(Category $category)

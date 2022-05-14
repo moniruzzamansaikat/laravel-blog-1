@@ -8,7 +8,7 @@ class DCommentsController extends Controller
 {
     public function index()
     {
-        $comments = Comment::all();
+        $comments = Comment::paginate(10);
         return view('dashboard.comments.index', compact('comments'));
     }
 
